@@ -103,6 +103,21 @@ After getting a cup of coffee, you'll be able to run this executable directly:
 
 > ./target/security-keycloak-authorization-quickstart-1.0.0-SNAPSHOT-runner
 
+## Curl syntax
+
+
+```
+curl -d "client_secret=<client-secret>" -d "client_id=<client-id>" -d "username=<username>" -d "password=<password>" -d "grant_type=password" "http://localhost:8080/auth/realms/<realm-name>/protocol/openid-connect/token"
+
+```
+
+The curl command works without the Content-Type header  -H "content-type: application/x-www-form-urlencoded"
+
+
+```
+curl --insecure -X POST https://localhost:8543/realms/quarkus/protocol/openid-connect/token  --user backend-service:secret -H "content-type: application/x-www-form-urlencoded" -d "username=alice&password=alice&grant_type=password"
+```
+
 ### Testing the application
 
 See the `Live coding with Quarkus` section above about testing your application in a dev mode.
@@ -111,6 +126,9 @@ You can test the application launched in JVM or Native modes with `curl`.
 
 The application is using bearer token authorization and the first thing to do is obtain an access token from the Keycloak Server in
 order to access the application resources:
+
+
+
 
 ```bash
 export access_token=$(\
