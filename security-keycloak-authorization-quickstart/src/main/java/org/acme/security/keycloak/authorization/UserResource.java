@@ -17,6 +17,12 @@ public class UserResource {
     public User me() {
         return new User(keycloakSecurityContext);
     }
+	
+	@GET
+    @Path("/mytest")
+    public String  mytest() {
+        return "Hello my Test Keycloak";
+    }
 
     public static class User {
 

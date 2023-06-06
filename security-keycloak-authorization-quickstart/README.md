@@ -103,6 +103,11 @@ After getting a cup of coffee, you'll be able to run this executable directly:
 
 > ./target/security-keycloak-authorization-quickstart-1.0.0-SNAPSHOT-runner
 
+
+## Dev UI  security-openid-connect-dev-services
+
+https://quarkus.io/guides/security-openid-connect-dev-services
+
 ## Curl syntax
 
 
@@ -115,7 +120,27 @@ The curl command works without the Content-Type header  -H "content-type: applic
 
 
 ```
+
+
 curl --insecure -X POST https://localhost:8543/realms/quarkus/protocol/openid-connect/token  --user backend-service:secret -H "content-type: application/x-www-form-urlencoded" -d "username=alice&password=alice&grant_type=password"
+
+Avec  Posman
+
+* Authorization : basic auth
+user: backend-service
+password: secret
+
+* Body: x-www-form-urlencoded
+params:
+username=alice
+password=alice
+grant_type=password
+```
+
+
+
+```
+curl -X GET  http://localhost:8080/api/users/me -H "Authorization: Bearer    eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ4Q0JWQ3l2X3o5cDRjUU1zZ3FRVXd1UkhET054ZXR2ZGJpTkxkNjh6X2ZnIn0.eyJleHAiOjE2ODU1NDk4NTIsImlhdCI6MTY4NTU0OTU1MiwiYXV0aF90aW1lIjoxNjg1NTQ5NTUyLCJqdGkiOiI2MTJiYjViNy1kMjBmLTRlN2ItOWZhOS01NjEyNzRmZGY3YjciLCJpc3MiOiJodHRwOi8vMTAuMTAuMTU2LjE1OjgwMjQvYXV0aC9yZWFsbXMvcXVhcmt1cyIsInN1YiI6IjdkZDFiZjNkLThlNWItNDkwOC05MmNjLWE1MDUzNzEwMTNlMSIsInR5cCI6IkJlYXJlciIsImF6cCI6ImJhY2tlbmQtc2VydmljZSIsIm5vbmNlIjoicU5za09pNiIsInNlc3Npb25fc3RhdGUiOiJhOTI0MDQ0Zi01NWVjLTRmNjMtOTE5Mi1jZDI2MjgwNGY3ZTMiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbInVzZXIiXX0sInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJzaWQiOiJhOTI0MDQ0Zi01NWVjLTRmNjMtOTE5Mi1jZDI2MjgwNGY3ZTMiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6ImFsaWNlIn0.Wo2A2Swbhdjd9lqfRLmnAevts1QWmE09N4AowoQikNSJ1klEkb6c0QfSAs-ZnTyfOinbHtIxfIKJCS_s4lCHiOgc-kHOvimnvOadM8aJFXKkiECjhEHs43v-_EHmxSapPpCAZ1HSs5oQpgqxFQGbnbWXgiSltaELWIQ8P8YoohpcvinCc0jhhWV-pP7mj6iS2vAfWx2TAM2hJTsC8vPhr6afkIFORtc3xlm0q9kCoRTkDTzAeyOYspu8kjrTfKzatmZbd-jGPCEdAJNaikCLVPtGvBo1VT4Asp_Y1xyEesF2y2nRljJSopiMYyDFPQMdJTKSf3Coy381BQdJgmc8Yw"
 ```
 
 ### Testing the application
