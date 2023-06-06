@@ -103,6 +103,27 @@ After getting a cup of coffee, you'll be able to run this executable directly:
 
 > ./target/security-keycloak-authorization-quickstart-1.0.0-SNAPSHOT-runner
 
+##  Client gestion des authorization / ressource
+
+https://quarkus.io/guides/security-keycloak-authorization
+
+## Role-Based  Sample
+
+The service account associated with your client needs to be allowed to view the realm users.
+
+Go to http://localhost:8080/auth/admin/{realm_name}/console/#/realms/{realm_name}/clients
+
+- Select your client (which must be a confidential client)
+
+- In the settings tab, switch Service Account Enabled to ON
+
+- Click on save, the Service Account Roles tab will appear
+
+- In Client Roles, select realm_management
+
+- Scroll through available roles until you can select view_users
+
+- Click on Add selected
 
 ## Dev UI  security-openid-connect-dev-services
 
