@@ -80,6 +80,13 @@ Access Token Lifespan = 5 minutes/300s par defaut
 
 ** Dans  Royaume / Token
 
+## Client / Authorization -  authz/resource-server/resource
+
+To configure  Resource mapping with role:
+
+- URI = /api/users/*  for  role user
+- URI = /api/admin/*  for  role admin
+
 ## Authorization  Keycloak Client
 
 https://stackoverflow.com/questions/71861002/client-application-is-not-registered-as-a-resource-server
