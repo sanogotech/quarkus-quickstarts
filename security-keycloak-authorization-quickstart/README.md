@@ -73,6 +73,12 @@ This command will leave Quarkus running in the foreground listening on port 8080
 
 Now open [OpenId Connect Dev UI](http://localhost:8080/q/dev). You will be asked to login into a _Single Page Application_. Log in as `alice:alice` - accessing the `/api/admin` will return `403` and `/api/users/me` - `200` as `alice` only has a _User Permission_ to access the `/api/users/me` resource. Logout and login as `admin:admin` - accessing both `/api/admin` and `/api/users/me` will return `200` since `admin` has both _Admin Permission_ to access the `/api/admin` resource and _User Permission_ to access the `/api/users/me` resource.
 
+
+## Authorization  Keycloak Client
+
+https://stackoverflow.com/questions/71861002/client-application-is-not-registered-as-a-resource-server
+
+
 ### Run Quarkus in JVM mode
 
 When you're done iterating in developer mode, you can run the application as a

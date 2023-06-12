@@ -11,6 +11,7 @@ Under the hood, this demo uses:
 
 To compile and run this demo you will need:
 
+- Maven 3.8.8
 - JDK 11+
 - GraalVM
 
