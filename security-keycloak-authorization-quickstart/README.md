@@ -87,6 +87,45 @@ To configure  Resource mapping with role:
 - URI = /api/users/*  for  role user
 - URI = /api/admin/*  for  role admin
 
+
+##  Resource / Permission/ Default Policy (javascript)
+
+** https://www.keycloak.org/docs/latest/authorization_services/index.html
+
+** Permission
+Consider this simple and very common permission:
+
+A permission associates the object being protected with the policies that must be evaluated to determine whether access is granted.
+
+X CAN DO Y ON RESOURCE Z
+
+where …​
+
+X represents one or more users, roles, or groups, or a combination of them. You can also use claims and context here.
+
+Y represents an action to be performed, for example, write, view, and so on.
+
+Z represents a protected resource, for example, "/accounts".
+
+Keycloak provides a rich platform for building a range of permission strategies ranging from simple to very complex, rule-based dynamic permissions. It provides flexibility and helps to:
+
+Reduce code refactoring and permission management costs
+
+Support a more flexible security model, helping you to easily adapt to changes in your security requirements
+
+Make changes at runtime; applications are only concerned about the resources and scopes being protected and not how they are protected.
+
+** Policy
+
+A policy defines the conditions that must be satisfied to grant access to an object. Unlike permissions, you do not specify the object being protected but rather the conditions that must be satisfied for access to a given object (for example, resource, scope, or both). Policies are strongly related to the different access control mechanisms (ACMs) that you can use to protect your resources. With policies, you can implement strategies for attribute-based access control (ABAC), role-based access control (RBAC), context-based access control, or any combination of these.
+
+Keycloak leverages the concept of policies and how you define them by providing the concept of aggregated policies, where you can build a "policy of policies" and still control the behavior of the evaluation. Instead of writing one large policy with all the conditions that must be satisfied for access to a given resource, the policies implementation in Keycloak Authorization Services follows the divide-and-conquer technique. That is, you can create individual policies, then reuse them with different permissions and build more complex policies by combining individual policies.
+
+- Default Policy
+ - Code : 
+ // by default, grants any permission associated with this policy
+$evaluation.grant();
+
 ## Authorization  Keycloak Client
 
 https://stackoverflow.com/questions/71861002/client-application-is-not-registered-as-a-resource-server

@@ -7,7 +7,9 @@ import jakarta.ws.rs.Path;
 public class PublicResource {
 
     @GET
-    public void serve() {
+    public String serve() {
         // no-op
+		
+		 return "Hello my Test Keycloak";
     }
 }
